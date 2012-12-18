@@ -1,0 +1,17 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CyrusBuilt.MonoPluginFramework/Diagnostics/TestMachine.cs">
+    <Files>
+      <File FileName="CyrusBuilt.MonoPluginFramework/PluginManager.cs" Line="205" Column="4" />
+      <File FileName="CyrusBuilt.MonoPluginFramework/Events/ProgressEventArgs.cs" Line="40" Column="90" />
+      <File FileName="CyrusBuilt.MonoPluginFramework/Diagnostics/DiagResult.cs" Line="44" Column="95" />
+      <File FileName="CyrusBuilt.MonoPluginFramework/IPlugin.cs" Line="44" Column="30" />
+      <File FileName="CyrusBuilt.MonoPluginFramework/IPluginHost.cs" Line="1" Column="1" />
+      <File FileName="CyrusBuilt.MonoPluginFramework/Diagnostics/TestMachine.cs" Line="93" Column="64" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

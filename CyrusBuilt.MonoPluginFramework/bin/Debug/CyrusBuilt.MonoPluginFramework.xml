@@ -1,0 +1,793 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>/media/F20636190635DEF3/CyrusBuilt.MonoPluginFramework/CyrusBuilt.MonoPluginFramework/bin/Debug/CyrusBuilt.MonoPluginFramework</name>
+    </assembly>
+    <members>
+        <member name="T:CyrusBuilt.MonoPluginFramework.IPlugin">
+            <summary>
+            A plugin interface. All assemblies representing plugins to the application
+            must contain a type that implements this interface.
+            </summary>
+        </member>
+        <member name="E:CyrusBuilt.MonoPluginFramework.IPlugin.Stopping">
+            <summary>
+            Occurs when the plugin is stopping.
+            </summary>
+        </member>
+        <member name="E:CyrusBuilt.MonoPluginFramework.IPlugin.Stopped">
+            <summary>
+            Occurs when the plugin has stopped.
+            </summary>
+        </member>
+        <member name="E:CyrusBuilt.MonoPluginFramework.IPlugin.Starting">
+            <summary>
+            Occurs when the plugin is starting.
+            </summary>
+        </member>
+        <member name="E:CyrusBuilt.MonoPluginFramework.IPlugin.Progress">
+            <summary>
+            Occurs when the plugin makes progress.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPlugin.Host">
+            <summary>
+            Gets or sets plugin host. This would be the application (class)
+            that implements <see cref="T:CyrusBuilt.MonoPluginFramework.IPluginHost" /> for using this plugin.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPlugin.Name">
+            <summary>
+            Gets the name of the plugin.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPlugin.Description">
+            <summary>
+            Gets a description of the plugin.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPlugin.Author">
+            <summary>
+            Gets the plugin's author.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPlugin.Version">
+            <summary>
+            Gets the plugin version.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPlugin.IsDisposed">
+            <summary>
+            Gets whether or not the plugin has been disposed.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPlugin.Initialized">
+            <summary>
+            Gets a flag to indicate whether or not the plugin has been
+            initialized.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPlugin.IsBusy">
+            <summary>
+            Gets a value indicating whether this instance is busy.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPlugin.Index">
+            <summary>
+            Gets or sets the instance index. This is useful for save file dialogs.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.IPlugin.Initialize">
+            <summary>
+            Initializes the plugin.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.IPlugin.Start">
+            <summary>
+            Start this instance.
+            </summary>
+            <exception cref="T:System.ObjectDisposedException">
+            This plugin instance has been disposed.
+            </exception>
+            <exception cref="T:System.InvalidOperationException">
+            This plugin has not yet been initialized.
+            </exception>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.IPlugin.Stop">
+            <summary>
+            Stop this instance.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.IPlugin.GetConfiguration">
+            <summary>
+            Gets the plugin's configuration.
+            </summary>
+            <returns>
+            The plugin's configuration.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.IPlugin.SetConfiguration(CyrusBuilt.MonoPluginFramework.PluginConfiguration)">
+            <summary>
+            Sets the plugin's configuration.
+            </summary>
+            <param name="config">
+            The configuration to set.
+            </param>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.IPluginHost">
+            <summary>
+            A plugin host interface. Any type that will act as a host for plugin
+            assemblies must implement this interface.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPluginHost.StartupPath">
+            <summary>
+            Gets the startup path.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPluginHost.AvailablePlugins">
+            <summary>
+            Gets the available plugins.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPluginHost.Initialized">
+            <summary>
+            Gets a value indicating whether this <see cref="T:CyrusBuilt.MonoPluginFramework.IPluginHost" />
+            is initialized.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.IPluginHost.IsDisposed">
+            <summary>
+            Gets a value indicating whether this instance is disposed.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.IPluginHost.Initialize">
+            <summary>
+            Initialize the plugin host.
+            </summary>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin">
+            <summary>
+            Available plugin.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePlugin.#ctor(CyrusBuilt.MonoPluginFramework.IPlugin,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />
+            class with the plugin instance and assembly path.
+            </summary>
+            <param name="instance">
+            The plugin instance.
+            </param>
+            <param name="path">
+            The full path to the plugin assembly.
+            </param>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.AvailablePlugin.Instance">
+            <summary>
+            Gets the plugin instance.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.AvailablePlugin.AssemblyPath">
+            <summary>
+            Gets the full path to the plugin assembly.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePlugin.GetHashCode">
+            <summary>
+            Serves as a hash function for a <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />
+            object.
+            </summary>
+            <returns>
+            A hash code for this instance that is suitable for use in hashing
+            algorithms and data structures such as a hash table.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePlugin.ToString">
+            <summary>
+            Returns a <see cref="T:System.String" /> that represents the current
+            <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />.
+            </summary>
+            <returns>
+            A <see cref="T:System.String" /> that represents the current
+            <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePlugin.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object" /> is
+            equal to the current <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />.
+            </summary>
+            <param name="obj">
+            The <see cref="T:System.Object" /> to compare with the current
+            <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />.
+            </param>
+            <returns>
+                <c>true</c> if the specified <see cref="T:System.Object" /> is equal
+            to the current <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />;
+            otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePlugin.Equals(CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+            <summary>
+            Determines whether the specified <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />
+            is equal to the current <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />.
+            </summary>
+            <param name="plugin">
+            The <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> to
+            compare with the current <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />.
+            </param>
+            <returns>
+                <c>true</c> if the specified <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />
+            is equal to the current <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />;
+            otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.DuplicatePluginInstanceException">
+            <summary>
+            The exception that is thrown when a duplicate plugin instance is detected.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.DuplicatePluginInstanceException.#ctor(CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.DuplicatePluginInstanceException" />
+            class with the plugin that is a duplicate.
+            </summary>
+            <param name="plugin">
+            The plugin that is an instance duplicate of another.
+            </param>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.DuplicatePluginInstanceException.PluginDuplicate">
+            <summary>
+            Gets the plugin duplicate.
+            </summary>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.PluginManager">
+            <summary>
+            Manages the locating, loading, and unloading of plugins. This is a
+            serializable singleton class. This means that this class can only be
+            instantiated *once* using the instance getter and then all
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" />
+            class. This is the default private constructor and is only used internally.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.#ctor(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" />
+            class that is serializable and uses the specified serialization data.
+            </summary>
+            <param name="info">
+            A <see cref="T:System.Runtime.Serialization.SerializationInfo" /> object that contains the information
+            required to serialize the new <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" /> instance.
+            </param>
+            <param name="context">
+            A <see cref="T:System.Runtime.Serialization.StreamingContext" /> object that contains the source
+            and destination of the serialized stream associated with the new
+            <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" /> instance.
+            </param>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.PluginManager.Instance">
+            <summary>
+            Guarantees a singleton instance of this class (thread safe).
+            </summary>
+            <value>
+            The first call to this instantiator will return a new instance of this
+            class object.  Any additional calls that follow will return a reference
+            to the already created object instance (double-check locking method).
+            </value>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.PluginManager.AvailablePlugins">
+            <summary>
+            Gets the collection of all plugins found and loaded by the
+            <see cref="M:CyrusBuilt.MonoPluginFramework.PluginManager.FindPlugins(System.IO.DirectoryInfo)" /> method.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.PluginManager.StartupPath">
+            <summary>
+            Gets the startup path.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.PluginManager.IsDisposed">
+            <summary>
+            Gets a value indicating whether this instance is disposed.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.PluginManager.Initialized">
+            <summary>
+            Gets a value indicating whether this <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" />
+            is initialized.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.System#Runtime#Serialization#ISerializable#GetObjectData(System.Runtime.Serialization.SerializationInfo,System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            This method is called when serializing this class (singleton).
+            </summary>
+            <param name="info">
+            The contextual information about the source or destination.
+            </param>
+            <param name="context">
+            The object that holds the serialized object data.
+            </param>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.Dispose(System.Boolean)">
+            <summary>
+            Method for disposing object references, only if all other references
+            to this class have already been disposed.  This also disposes
+            managed resources.
+            </summary>
+            <param name="disposing">
+            Flag for indicating that this was called from the public <see cref="M:CyrusBuilt.MonoPluginFramework.PluginManager.Dispose(System.Boolean)" />
+            method, and thus we really do want to dispose this class reference.
+            </param>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.Dispose">
+            <summary>
+            Releases all resource used by the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" />
+            object.
+            </summary>
+            <remarks>
+            Call <see cref="M:CyrusBuilt.MonoPluginFramework.PluginManager.Dispose(System.Boolean)" /> when you are finished using the
+            <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" />. The
+            <see cref="M:CyrusBuilt.MonoPluginFramework.PluginManager.Dispose(System.Boolean)" /> method leaves the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" />
+            in an unusable state. After calling <see cref="M:CyrusBuilt.MonoPluginFramework.PluginManager.Dispose(System.Boolean)" />, you must
+            release all references to the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" />
+            so the garbage collector can reclaim the memory that the
+            <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" /> was occupying.
+            </remarks>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.Initialize">
+            <summary>
+            Initializes the plugin manager.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.FindPlugins(System.IO.DirectoryInfo)">
+            <summary>
+            Finds and loads plugins located in the specified directory.
+            </summary>
+            <param name="directory">
+            The directory where the plugins are located.
+            </param>
+            <exception cref="T:System.InvalidOperationException">
+            The plugin manager has not been initialized.
+            </exception>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.FindPlugins">
+            <summary>
+            Finds and loads plugins located in the same directory as this
+            assembly.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.ClosePlugins">
+            <summary>
+            Closes all loaded plugins.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.AddPlugin(System.IO.FileInfo)">
+            <summary>
+            Loads the specified plugin and adds it to the managed plugin
+            collection.
+            </summary>
+            <param name="file">
+            The assembly (*.dll file) that is the plugin.
+            </param>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.SingletonSerializationHelper">
+            <summary>
+            A helper class for serialization of the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" /> class object.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.SingletonSerializationHelper.GetRealObject(System.Runtime.Serialization.StreamingContext)">
+            <summary>
+            This method is called after this object is deserialized.
+            </summary>
+            <param name="context">
+            The contextual information about the source or destination.
+            </param>
+            <returns>
+            A reference to the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginManager" /> singleton instance.
+            </returns>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection">
+            <summary>
+            Represents a collection of <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> objects. This
+            collection class will not allow duplicates of any one instance.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection" />
+            class. This is the default constructor.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.Item(System.Int32)">
+            <summary>
+            Gets or sets the <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection" />
+            at the specified index.
+            </summary>
+            <param name="index">
+            The zero-based index of the <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> to get or
+            set.
+            </param>
+            <returns>
+            The <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> at the specified index.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.Add(CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+            <summary>
+            Adds the specified <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> to the collection
+            if it is not already in the collection.
+            </summary>
+            <param name="plugin">
+            The plugin to add to the collection.
+            </param>
+            <returns>
+            If successful, the zero-based index position into which the plugin
+            was added; Otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.Insert(System.Int32,CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+            <summary>
+            Inserts a <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> into the collection at the
+            specified index.
+            </summary>
+            <param name="index">
+            The zero-based index at which the <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />
+            should be inserted.
+            </param>
+            <param name="plugin">
+            The <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> to insert into the collection.
+            </param>
+            <exception cref="T:CyrusBuilt.MonoPluginFramework.DuplicatePluginInstanceException">
+            An instance of the specified plugin already exists in the collection.
+            </exception>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.Remove(CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+            <summary>
+            Removes the first occurrence of a specified <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />
+            from the collection.
+            </summary>
+            <param name="plugin">
+            The <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> to remove from the collection.
+            </param>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.Contains(CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+            <summary>
+            Determines whether or not the collection contains a specific
+            <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />.
+            </summary>
+            <param name="plugin">
+            The <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> to locate in the collection.
+            </param>
+            <returns>
+            true if the <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> is found in the collection;
+            Otherwise, false.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.IndexOf(CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+            <summary>
+            Determines the index of a specific <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> in
+            the collection.
+            </summary>
+            <param name="plugin">
+            The <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> to locate in the collection.
+            </param>
+            <returns>
+            The index of the <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" /> if found in the
+            collection; Otherwise, -1.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.CopyTo(CyrusBuilt.MonoPluginFramework.AvailablePlugin[],System.Int32)">
+            <summary>
+            Copies the elements of the collection to a <see cref="T:CyrusBuilt.MonoPluginFramework.AvailablePlugin" />
+            array, starting at a particular array index.
+            </summary>
+            <param name="array">
+            The one-dimensional log entry array that is the destination of the
+            elements copied from the collection.  The location array must have
+            zero-based indexing.
+            </param>
+            <param name="index">
+            The zero-based index in the array at which copying begins.
+            </param>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.Find(System.String)">
+            <summary>
+            Finds a plugin in the available Plugins.
+            </summary>
+            <param name="nameOrPath">
+            The name or File path of the plugin to find.
+            </param>
+            <returns>
+            Available Plugin, or null if the plugin is not found.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.AvailablePluginCollection.IsNullOrEmpty(CyrusBuilt.MonoPluginFramework.AvailablePluginCollection)">
+            <summary>
+            Determines if the specified <b>AvailablePlugins</b> collection is
+            null or empty.
+            </summary>
+            <param name="collection">
+            The <b>AvailablePlugins</b> collection to check.
+            </param>
+            <returns>
+            true if the specified collection is null or empty; Otherwise, false.
+            </returns>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.Events.ProgressEventHandler">
+            <summary>
+            Progress event handler delegate.
+            </summary>
+            <param name="sender">
+            The object sending the event call.
+            </param>
+            <param name="e">
+            The event arguments.
+            </param>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.Events.ProgressEventArgs">
+            <summary>
+            Plugin progress event arguments.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.Events.ProgressEventArgs.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.Events.ProgressEventArgs" />
+            class with the current step, total steps, and the name of the
+            current item being processed.
+            </summary>
+            <param name="step">
+            The current step.
+            </param>
+            <param name="total">
+            The total number of steps.
+            </param>
+            <param name="item">
+            The name of the current item being processed.
+            </param>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Events.ProgressEventArgs.Item">
+            <summary>
+            Gets the name of the item being processed.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Events.ProgressEventArgs.Step">
+            <summary>
+            Gets the step.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Events.ProgressEventArgs.Total">
+            <summary>
+            Gets the total.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Events.ProgressEventArgs.Progress">
+            <summary>
+            Gets the progress.
+            </summary>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.Diagnostics.DiagResult">
+            <summary>
+            The result of plugin diagnostics.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.Diagnostics.DiagResult.#ctor(System.Boolean,System.Boolean,System.Boolean,System.String,System.Version,System.Reflection.ProcessorArchitecture)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.Diagnostics.DiagResult" />
+            class with the result values.
+            </summary>
+            <param name="exists">
+            Set true if the plugin assembly exists.
+            </param>
+            <param name="valid">
+            Set true if the plugin is valid (compatible with this framework).
+            </param>
+            <param name="isAssm">
+            The inspected file is a Mono/.NET assembly.
+            </param>
+            <param name="reasonInvalid">
+            The reason the plugin is not valid.
+            </param>
+            <param name="ver">
+            The plugin version.
+            </param>
+            <param name="pa">
+            The plugin processor architecture.
+            </param>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Diagnostics.DiagResult.Exists">
+            <summary>
+            Gets a value indicating whether the plugin assembly exists.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Diagnostics.DiagResult.IsValid">
+            <summary>
+            Gets a value indicating whether the plugin is valid.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Diagnostics.DiagResult.IsAssembly">
+            <summary>
+            Gets a value indicating whether the plugin is an assembly.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Diagnostics.DiagResult.ReasonNotValid">
+            <summary>
+            Gets the reason the plugin is not valid.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Diagnostics.DiagResult.AssemblyVersion">
+            <summary>
+            Gets the assembly version of the plugin.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.Diagnostics.DiagResult.Arch">
+            <summary>
+            Gets the processor architecture the plugin assembly was targeted
+            for when the assembly was built.
+            </summary>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.Diagnostics.TestMachine">
+            <summary>
+            Utility for testing plugin files for problems.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.Diagnostics.TestMachine.#ctor(System.IO.FileInfo)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.Diagnostics.TestMachine" />
+            class with the assembly file to test.
+            </summary>
+            <param name="assembly">
+            The assembly file to test.
+            </param>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.Diagnostics.TestMachine.RunDiagnostics(System.IO.FileInfo)">
+            <summary>
+            Runs diagnostics on the specified file.
+            </summary>
+            <returns>
+            The result of the diagnostics.
+            </returns>
+            <param name="plugin">
+            The plugin to test.
+            </param>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.Diagnostics.TestMachine.Run">
+            <summary>
+            Run this instance. This performs all the tests. A plugin is
+            considered valid if all of the following conditions are true:
+            - File exists.
+            - File is a Mono/.NET assembly.
+            - File is not an assembly that has already been loaded.
+            - Assembly contains a public type that implements IPlugin.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.Diagnostics.TestMachine.MyReflectionOnlyResolveEventHandler(System.Object,System.ResolveEventArgs)">
+            <summary>
+            Handles the reflection only resolve event.
+            </summary>
+            <returns>
+            The assembly resolved from the strong path.
+            </returns>
+            <param name="sender">
+            The object sending the event call.
+            </param>
+            <param name="args">
+            The event arguments.
+            </param>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.PluginConfiguration">
+            <summary>
+            Plugin configuration storage using key/value pairs.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginConfiguration" />
+            class. This is the default constructor.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.PluginConfiguration.IsDisposed">
+            <summary>
+            Gets a value indicating whether this instance is disposed.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.PluginConfiguration.IsDirty">
+            <summary>
+            Gets a value indicating whether this instance is dirty. If true,
+            then values in the configuration have changed since they were loaded
+            and have not yet been saved.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.PluginConfiguration.IsEmpty">
+            <summary>
+            Gets a value indicating whether this instance is empty.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.PluginConfiguration.AllKeys">
+            <summary>
+            Gets a collection of all key names in the configuration.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.AddSetting(System.String,System.Object)">
+            <summary>
+            Adds the setting. If the setting already exists, this will just
+            assign it's value.
+            </summary>
+            <param name="key">
+            The setting name.
+            </param>
+            <param name="value">
+            The setting value.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            This instance has been disposed.
+            </exception>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.SetValue(System.String,System.Object)">
+            <summary>
+            Sets the value of a setting.
+            </summary>
+            <param name="key">
+            The name of the setting to assign a value to.
+            </param>
+            <param name="value">
+            The value to assign.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            This instance has been disposed.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+            The specified setting name does not exist in the configuration.
+            </exception>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.GetValue(System.String)">
+            <summary>
+            Gets the value of the specified setting.
+            </summary>
+            <param name="key">
+            The name of the setting to get the value of.
+            </param>
+            <returns>
+            If successful, the value of the setting; Otherwise, null if the
+            specified setting could not be found.
+            </returns>
+            <exception cref="T:System.ObjectDisposedException">
+            This instance has been disposed.
+            </exception>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.CopyFromConfig(CyrusBuilt.MonoPluginFramework.PluginConfiguration)">
+            <summary>
+            Copies from configuration values from another configuration with
+            the same settings (key names).
+            </summary>
+            <param name="config">
+            The configuration to copy from.
+            </param>
+            <exception cref="T:System.ObjectDisposedException">
+            This instance has been disposed.
+            </exception>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.Clear">
+            <summary>
+            Clears all the configuration values.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.Dispose">
+            <summary>
+            Releases all resource used by the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginConfiguration" />
+            object.
+            </summary>
+            <remarks>
+            Call <see cref="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.Dispose" /> when you are finished using the
+            <see cref="T:CyrusBuilt.MonoPluginFramework.PluginConfiguration" />. The <see cref="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.Dispose" /> method leaves the
+            <see cref="T:CyrusBuilt.MonoPluginFramework.PluginConfiguration" /> in an unusable state. After calling
+            <see cref="M:CyrusBuilt.MonoPluginFramework.PluginConfiguration.Dispose" />, you must release all references to the
+            <see cref="T:CyrusBuilt.MonoPluginFramework.PluginConfiguration" /> so the garbage collector can reclaim the memory
+            that the <see cref="T:CyrusBuilt.MonoPluginFramework.PluginConfiguration" /> was occupying.
+            </remarks>
+        </member>
+    </members>
+</doc>
