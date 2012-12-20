@@ -21,6 +21,7 @@
 //  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 //
 using System;
+using CyrusBuilt.MonoPluginFramework.UI;
 
 namespace CyrusBuilt.MonoPluginFramework
 {
@@ -79,6 +80,18 @@ namespace CyrusBuilt.MonoPluginFramework
 		/// The configuration to save.
 		/// </param>
 		void SavePluginConfiguration(IPlugin plugin, PluginConfiguration config);
+
+		/// <summary>
+		/// Gets the plugin's configuration dialog.
+		/// </summary>
+		/// <param name="plugin">
+		/// The plugin to get the configuration from.
+		/// </param>
+		/// <returns>
+		/// A dialog form containing the settings read from the specified
+		/// plugin's configuration.
+		/// </returns>
+		FormSettingsDialog GetConfigurationDialog(AvailablePlugin plugin);
 	}
 }
 

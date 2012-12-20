@@ -1,0 +1,151 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<stetic-interface>
+  <configuration>
+    <images-root-path>..</images-root-path>
+    <target-gtk-version>2.12</target-gtk-version>
+  </configuration>
+  <import>
+    <widget-library name="../bin/Debug/CyrusBuilt.MonoPluginFramework.dll" internal="true" />
+  </import>
+  <widget class="Gtk.Window" id="CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog" design-size="540 387">
+    <property name="MemberName">FormSettingsDialog</property>
+    <property name="WidthRequest">540</property>
+    <property name="HeightRequest">387</property>
+    <property name="Title" translatable="yes">Plugin Settings</property>
+    <property name="Icon">resource:CyrusBuilt.MonoPluginFramework.plugin_link.png</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="Modal">True</property>
+    <property name="DefaultWidth">540</property>
+    <property name="DefaultHeight">387</property>
+    <property name="DestroyWithParent">True</property>
+    <signal name="Realized" handler="OnRealized" after="yes" />
+    <signal name="DeleteEvent" handler="OnDeleteEvent" after="yes" />
+    <child>
+      <widget class="Gtk.Fixed" id="fixedMain">
+        <property name="MemberName" />
+        <property name="HasWindow">False</property>
+        <child>
+          <widget class="Gtk.ScrolledWindow" id="GtkScrolledWindow">
+            <property name="MemberName" />
+            <property name="ShadowType">In</property>
+            <child>
+              <widget class="Gtk.TreeView" id="treeviewPlugins">
+                <property name="MemberName" />
+                <property name="WidthRequest">495</property>
+                <property name="HeightRequest">285</property>
+                <property name="CanFocus">True</property>
+                <property name="ShowScrollbars">True</property>
+                <signal name="SelectCursorRow" handler="OnTreeviewPluginsSelectCursorRow" after="yes" />
+              </widget>
+            </child>
+          </widget>
+          <packing>
+            <property name="X">4</property>
+            <property name="Y">3</property>
+          </packing>
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <placeholder />
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="buttonClose">
+            <property name="MemberName" />
+            <property name="WidthRequest">75</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Close</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnButtonCloseClicked" after="yes" />
+          </widget>
+          <packing>
+            <property name="X">443</property>
+            <property name="Y">317</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="buttonSave">
+            <property name="MemberName" />
+            <property name="WidthRequest">75</property>
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Save</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnButtonSaveClicked" after="yes" />
+          </widget>
+          <packing>
+            <property name="X">362</property>
+            <property name="Y">317</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+  <widget class="Gtk.Dialog" id="CyrusBuilt.MonoPluginFramework.UI.FormChangeValue" design-size="400 300">
+    <property name="MemberName" />
+    <property name="WidthRequest">344</property>
+    <property name="HeightRequest">167</property>
+    <property name="Title" translatable="yes">Edit Setting</property>
+    <property name="WindowPosition">CenterOnParent</property>
+    <property name="DefaultWidth">344</property>
+    <property name="DefaultHeight">167</property>
+    <property name="Buttons">2</property>
+    <property name="HelpButton">False</property>
+    <signal name="Realized" handler="OnRealized" after="yes" />
+    <child internal-child="VBox">
+      <widget class="Gtk.VBox" id="dialog1_VBox">
+        <property name="MemberName" />
+        <property name="BorderWidth">2</property>
+        <child>
+          <placeholder />
+        </child>
+      </widget>
+    </child>
+    <child internal-child="ActionArea">
+      <widget class="Gtk.HButtonBox" id="dialog1_ActionArea">
+        <property name="MemberName" />
+        <property name="Spacing">10</property>
+        <property name="BorderWidth">5</property>
+        <property name="Size">2</property>
+        <property name="LayoutStyle">End</property>
+        <child>
+          <widget class="Gtk.Button" id="buttonCancel">
+            <property name="MemberName" />
+            <property name="CanDefault">True</property>
+            <property name="CanFocus">True</property>
+            <property name="UseStock">True</property>
+            <property name="Type">StockItem</property>
+            <property name="StockId">gtk-cancel</property>
+            <property name="ResponseId">-6</property>
+            <signal name="Clicked" handler="OnButtonCancelClicked" after="yes" />
+            <property name="label">gtk-cancel</property>
+          </widget>
+          <packing>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Button" id="buttonOk">
+            <property name="MemberName" />
+            <property name="CanDefault">True</property>
+            <property name="CanFocus">True</property>
+            <property name="UseStock">True</property>
+            <property name="Type">StockItem</property>
+            <property name="StockId">gtk-ok</property>
+            <property name="ResponseId">-5</property>
+            <signal name="Clicked" handler="OnButtonOkClicked" after="yes" />
+            <property name="label">gtk-ok</property>
+          </widget>
+          <packing>
+            <property name="Position">1</property>
+            <property name="Expand">False</property>
+            <property name="Fill">False</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</stetic-interface>

@@ -31,6 +31,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
+    <Reference Include="Mono.Posix, Version=2.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756" />
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="atk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
@@ -47,6 +56,11 @@
     <Compile Include="PluginConfiguration.cs" />
     <Compile Include="Events\PluginEventArgs.cs" />
     <Compile Include="Events\PluginFailedEventArgs.cs" />
+    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="UI\FormSettingsDialog.cs" />
+    <Compile Include="gtk-gui\CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog.cs" />
+    <Compile Include="UI\FormChangeValue.cs" />
+    <Compile Include="gtk-gui\CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
@@ -61,5 +75,12 @@
   <ItemGroup>
     <Folder Include="Events\" />
     <Folder Include="Diagnostics\" />
+    <Folder Include="UI\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="gtk-gui\gui.stetic">
+      <LogicalName>gui.stetic</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="..\..\..\Resources\Icons\FamFamFam Silk Icons\icons\plugin_link.png" />
   </ItemGroup>
 </Project>

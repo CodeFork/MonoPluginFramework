@@ -29,6 +29,7 @@ using System.Security;
 using System.Security.Permissions;
 using CyrusBuilt.MonoPluginFramework.Events;
 using CyrusBuilt.MonoPluginFramework.Diagnostics;
+using CyrusBuilt.MonoPluginFramework.UI;
 
 namespace CyrusBuilt.MonoPluginFramework
 {
@@ -338,10 +339,30 @@ namespace CyrusBuilt.MonoPluginFramework
 			
 			if (config != null) {
 				if ((!config.IsEmpty) && (config.IsDirty)) {
-					plugin.SaveConfiguration(config);
+					plugin.SetConfiguration(config);
 					config.ClearDirty();
 				}
 			}
+		}
+
+		/// <summary>
+		/// Gets the plugin's configuration dialog.
+		/// </summary>
+		/// <param name="plugin">
+		/// The plugin to get the configuration from.
+		/// </param>
+		/// <returns>
+		/// A dialog form containing the settings read from the specified
+		/// plugin's configuration.
+		/// </returns>
+		/// <exception cref="ArgumentNullException">
+		/// <paramref name="plugin"/> cannot be null.
+		/// </exception>
+		public FormSettingsDialog GetConfigurationDialog(AvailablePlugin plugin) {
+			if (plugin == null) {
+				throw new ArgumentNullException("plugin");
+			}
+			return new FormSettingsDialog(plugin);
 		}
 		#endregion
 	}

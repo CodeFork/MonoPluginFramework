@@ -80,6 +80,14 @@ namespace CyrusBuilt.MonoPluginFramework
 
 		#region Methods
 		/// <summary>
+		/// Clears the dirty flag. This should be called after the configuration
+		/// has been saved or otherwise persisted to disk.
+		/// </summary>
+		public void ClearDirty() {
+			this._isDirty = false;
+		}
+
+		/// <summary>
 		/// Adds the setting. If the setting already exists, this will just
 		/// assign it's value.
 		/// </summary>

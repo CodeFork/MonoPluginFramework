@@ -134,7 +134,7 @@ namespace CyrusBuilt.MonoPluginFramework
 		/// Gets the exception that is the failure cause.
 		/// </summary>
 		public Exception FailureCause {
-			get { return this.__ex; }
+			get { return this._ex; }
 		}
 
 		/// <summary>
