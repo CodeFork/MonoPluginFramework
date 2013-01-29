@@ -159,6 +159,18 @@
             The configuration to save.
             </param>
         </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.IPluginHost.GetConfigurationDialog(CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+            <summary>
+            Gets the plugin's configuration dialog.
+            </summary>
+            <param name="plugin">
+            The plugin to get the configuration from.
+            </param>
+            <returns>
+            A dialog form containing the settings read from the specified
+            plugin's configuration.
+            </returns>
+        </member>
         <member name="P:CyrusBuilt.MonoPluginFramework.IPluginHost.StartupPath">
             <summary>
             Gets the startup path.
@@ -403,6 +415,21 @@
             <param name="config">
             The configuration to save.
             </param>
+            <exception cref="T:System.ArgumentNullException">
+            <paramref name="plugin"/> cannot be null.
+            </exception>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.PluginManager.GetConfigurationDialog(CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+            <summary>
+            Gets the plugin's configuration dialog.
+            </summary>
+            <param name="plugin">
+            The plugin to get the configuration from.
+            </param>
+            <returns>
+            A dialog form containing the settings read from the specified
+            plugin's configuration.
+            </returns>
             <exception cref="T:System.ArgumentNullException">
             <paramref name="plugin"/> cannot be null.
             </exception>
@@ -985,67 +1012,188 @@
             Gets the plugin that failed processing.
             </summary>
         </member>
-        <member name="T:CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog">
+        <member name="T:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue">
             <summary>
-            Form settings dialog.
+            Setting value change dialog. This provides a dialog for changing the
+            value of a particular configuration setting.
             </summary>
         </member>
-        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog.#ctor(CyrusBuilt.MonoPluginFramework.AvailablePlugin)">
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.#ctor(System.String,System.String,System.String)">
             <summary>
-            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog"/>
-            class with the plugin to load the configuration from.
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue"/>
+            class with the key, value, and type.
             </summary>
-            <param name="plugin">
-            The plugin to load the configuration from.
+            <param name="key">
+            The key (setting name).
+            </param>
+            <param name="value">
+            The value associated with the setting.
+            </param>
+            <param name="type">
+            The name of the value type (ie. System.Object, System.String, etc).
             </param>
         </member>
-        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog.OnRealized(System.Object,System.EventArgs)">
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.ShowDialog">
             <summary>
-            Raises the realized event.
+            Shows the dialog and gets the response.
+            </summary>
+            <returns>
+            The dialog response.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.OnButtonOkClicked(System.Object,System.EventArgs)">
+            <summary>
+            Handles the button ok clicked event.
             </summary>
             <param name="sender">
-            
+            The object sending the event call.
             </param>
             <param name="e">
-            
+            The event arguments.
             </param>
         </member>
-        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog.OnDeleteEvent(System.Object,Gtk.DeleteEventArgs)">
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.OnButtonCancelClicked(System.Object,System.EventArgs)">
+            <summary>
+            Handles the button cancel clicked event.
+            </summary>
+            <param name="sender">
+            The object sending the event call.
+            </param>
+            <param name="e">
+            The event arguments.
+            </param>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.OnRealized(System.Object,System.EventArgs)">
+            <summary>
+            Handles the realized event.
+            </summary>
+            <param name="sender">
+            The object sending the event call.
+            </param>
+            <param name="e">
+            The event arguments.
+            </param>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.Key">
+            <summary>
+            Gets the key (setting name).
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.ValueType">
+            <summary>
+            Gets the value type.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.Value">
+            <summary>
+            Gets the value.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.ValueActual">
+            <summary>
+            Gets the *actual* value. The value returned will be of type <see cref="T:System.Object"/>
+            but can then be cast to the actual typed value using the <see cref="P:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.ValueType"/>
+            property by the caller.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.DialogResponse">
+            <summary>
+            Gets the dialog response.
+            </summary>
+        </member>
+        <member name="T:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog">
+            <summary>
+            Form plugin settings dialog.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.#ctor(CyrusBuilt.MonoPluginFramework.AvailablePlugin,Gtk.Window)">
+            <summary>
+            Initializes a new instance of the <see cref="T:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog"/>
+            class with the plugin to load and the parent window.
+            </summary>
+            <param name="plugin">
+            The plugin to load info from.
+            </param>
+            <param name="parent">
+            The window that is the parent of this dialog.
+            </param>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.LoadConfig">
+            <summary>
+            Loads the plugin configuration.
+            </summary>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.ShowDialog">
+            <summary>
+            Shows the dialog and gets the response.
+            </summary>
+            <returns>
+            The dialog response.
+            </returns>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.OnRealized(System.Object,System.EventArgs)">
+            <summary>
+            Handles the realized event.
+            </summary>
+            <param name="sender">
+            The object sending the event call.
+            </param>
+            <param name="e">
+            The event arguments.
+            </param>
+        </member>
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.OnDeleteEvent(System.Object,Gtk.DeleteEventArgs)">
             <summary>
             Raises the delete event event.
             </summary>
             <param name="sender">
-            
+            The object sending the event call.
             </param>
             <param name="e">
-            
+            The event arguments.
             </param>
         </member>
-        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog.OnButtonCloseClicked(System.Object,System.EventArgs)">
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.OnButtonCancelClicked(System.Object,System.EventArgs)">
             <summary>
-            Raises the button close clicked event.
+            Handles the button cancel clicked event.
             </summary>
             <param name="sender">
-            
+            The object sending the event call.
             </param>
             <param name="e">
-            
+            The event arguments.
             </param>
         </member>
-        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog.OnButtonSaveClicked(System.Object,System.EventArgs)">
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.OnButtonSaveClicked(System.Object,System.EventArgs)">
             <summary>
-            Raises the button save clicked event.
+            Handles the button save clicked event.
             </summary>
             <param name="sender">
-            
+            The object sending the event call.
             </param>
             <param name="e">
-            
+            The event arguments.
             </param>
         </member>
-        <member name="P:CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog.Configuration">
+        <member name="M:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.OnTreeviewPluginsRowActivated(System.Object,Gtk.RowActivatedArgs)">
+            <summary>
+            Handles the treeview plugins row activated event.
+            </summary>
+            <param name="sender">
+            The object sending the event call.
+            </param>
+            <param name="e">
+            The event arguments.
+            </param>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.Configuration">
             <summary>
             Gets the loaded (or modified) configuration.
+            </summary>
+        </member>
+        <member name="P:CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.DialogResponse">
+            <summary>
+            Gets the dialog response.
             </summary>
         </member>
     </members>

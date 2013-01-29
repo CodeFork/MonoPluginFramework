@@ -4,7 +4,7 @@
 //  Author:
 //       cyrusbuilt <cyrusbuilt at gmail dot com>
 //
-//  Copyright (c) 2012 CyrusBuilt 2012
+//  Copyright (c) 2012 CyrusBuilt
 //
 //  This program is free software; you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by

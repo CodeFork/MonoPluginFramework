@@ -2,9 +2,7 @@
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="CyrusBuilt.MonoPluginFramework\UI\FormChangeValue.cs">
     <Files>
-      <File FileName="CyrusBuilt.MonoPluginFramework\IPluginHost.cs" Line="94" Column="69" />
-      <File FileName="CyrusBuilt.MonoPluginFramework\UI\FormSettingsDialog.cs" Line="273" Column="38" />
-      <File FileName="CyrusBuilt.MonoPluginFramework\UI\FormChangeValue.cs" Line="52" Column="1" />
+      <File FileName="CyrusBuilt.MonoPluginFramework\UI\FormChangeValue.cs" Line="16" Column="65" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

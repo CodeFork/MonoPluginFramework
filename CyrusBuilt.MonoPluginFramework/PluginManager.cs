@@ -358,11 +358,11 @@ namespace CyrusBuilt.MonoPluginFramework
 		/// <exception cref="ArgumentNullException">
 		/// <paramref name="plugin"/> cannot be null.
 		/// </exception>
-		public FormSettingsDialog GetConfigurationDialog(AvailablePlugin plugin) {
+		public FormPluginSettingsDialog GetConfigurationDialog(AvailablePlugin plugin) {
 			if (plugin == null) {
 				throw new ArgumentNullException("plugin");
 			}
-			return new FormSettingsDialog(plugin);
+			return new FormPluginSettingsDialog(plugin, null);
 		}
 		#endregion
 	}

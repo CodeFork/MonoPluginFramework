@@ -91,7 +91,7 @@ namespace CyrusBuilt.MonoPluginFramework
 		/// A dialog form containing the settings read from the specified
 		/// plugin's configuration.
 		/// </returns>
-		FormSettingsDialog GetConfigurationDialog(AvailablePlugin plugin);
+		FormPluginSettingsDialog GetConfigurationDialog(AvailablePlugin plugin);
 	}
 }
 

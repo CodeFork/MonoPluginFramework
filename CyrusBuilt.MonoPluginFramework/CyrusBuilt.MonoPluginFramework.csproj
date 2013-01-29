@@ -57,10 +57,10 @@
     <Compile Include="Events\PluginEventArgs.cs" />
     <Compile Include="Events\PluginFailedEventArgs.cs" />
     <Compile Include="gtk-gui\generated.cs" />
-    <Compile Include="UI\FormSettingsDialog.cs" />
-    <Compile Include="gtk-gui\CyrusBuilt.MonoPluginFramework.UI.FormSettingsDialog.cs" />
     <Compile Include="UI\FormChangeValue.cs" />
     <Compile Include="gtk-gui\CyrusBuilt.MonoPluginFramework.UI.FormChangeValue.cs" />
+    <Compile Include="UI\FormPluginSettingsDialog.cs" />
+    <Compile Include="gtk-gui\CyrusBuilt.MonoPluginFramework.UI.FormPluginSettingsDialog.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
